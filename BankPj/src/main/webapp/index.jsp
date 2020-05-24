@@ -16,7 +16,11 @@
 	<h2>응성공했어</h2>
 	<h3>왜안되노 ㅡㅡ</h3>
 	<a href=""></a>
+	<a href="task/accountPage" >계좌신청</a>
 	<spring:eval expression="@lang['user.id']"/>
 	<spring:eval expression="@lang['user.pw']"/>
+	<spring:eval expression="@lang['user.test']"/>
+	<spring:eval expression="@lang['user.name']"/>
+	<spring:eval expression="@lang['user.phone']"/>
 </body>
 </html>
