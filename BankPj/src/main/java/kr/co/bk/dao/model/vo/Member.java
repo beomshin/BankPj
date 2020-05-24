@@ -1,5 +1,5 @@
 package kr.co.bk.dao.model.vo;
 
-public class Test {
+public class Member {
 
 }
