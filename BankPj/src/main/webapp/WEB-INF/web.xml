@@ -61,5 +61,4 @@
 		<exception-type>com.kh.spring.common.MyException</exception-type>
 		<location>/WEB-INF/views/common/myerror.jsp</location>
 	</error-page>
-
 </web-app>
