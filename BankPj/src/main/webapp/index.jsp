@@ -10,7 +10,7 @@
 <body>
 	<h1>오키</h1>
 	<h2>응성공했어</h2>
-	<spring:eval expression="@lang['user.id']"></spring:eval>
-	<spring:eval expression="@lang['user.pw']"></spring:eval>
+	<spring:eval expression="@lang['user.id']"/>
+	<spring:eval expression="@lang['user.pw']"/>
 </body>
 </html>
