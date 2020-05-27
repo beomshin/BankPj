@@ -2,4 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="member">
   
+  	<insert id="enrollMember">
+  		insert into member values(SEQ_MEMBER.nextval,#{m_id},#{m_pw},#{m_addr},
+  		default,#{m_gender},#{m_age},#{m_name},#{m_phone},sysdate)
+  	</insert>
+  	
+  	<select id="login" resultType="member">
+  		select * from member where m_id=#{userid}
+  	</select>
+  
 </mapper>
