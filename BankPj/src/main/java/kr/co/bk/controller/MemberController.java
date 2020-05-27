@@ -1,6 +1,7 @@
 package kr.co.bk.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -52,12 +53,12 @@ public class MemberController {
 	}
 	
 	@RequestMapping("member/login.do")
-	public String login(String userid,String userpw,Model m) {
+	public String login(String userid,String userpw,Model m,HttpSession session) {
 		Member login = service.login(userid);
 		
 		if(login!=null&&encoder.matches(userpw, login.getM_pw())) {
 			m.addAttribute("msg","로그인성공");
-			m.addAttribute("loginMember",login);
+			session.setAttribute("loginMember", login);
 		}else {
 			//로그인실패
 			m.addAttribute("msg","로그인실패");
