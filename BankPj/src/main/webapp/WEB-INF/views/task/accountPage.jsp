@@ -15,7 +15,7 @@ function myFunction() {
 	    txt = "<spring:eval expression="@lang['msg.empty']"/>";
 	    document.getElementById("empty").innerHTML = txt;
 	  } else {
-	    txt = person + "(인)";
+	    txt = person;
 	    document.getElementById("m_name").value = txt;
 	    document.getElementById("empty").innerHTML = "";
 	  }
@@ -33,9 +33,13 @@ $(document).ready(function (e){
 				return false;
 			}
 		}
-		alert('<spring:eval expression="@lang['msg.ok']"/>');
-		alert('계좌조회에서 개설된 계좌를 확인해주세요');
+		if('${sessionScope.loginMember.m_name}' != $('#m_name').val()) {
+			$('#m_name').val("");
+			alert('서명과 본인이름이 다릅니다.');
+			return false;
+		}else {
 		$('#frm').submit();
+		}
 	});
 });
 </script>
@@ -50,7 +54,8 @@ div {
 
 <form action="myAccount.do" method="POST" id="frm" name="frm">
 <div>
-<input type="hidden" id="m_no" name="m_no" value="1"> 
+<input type="hidden" id="m_no" name="m_no" value="${sessionScope.loginMember.m_no }"> 
+<input type="hidden" id="m_phone" name="m_phone" value="${sessionScope.loginMember.m_phone }"> 
 만드실 계좌 통장을 선택해주세요.
 <select id="a_type" name="a_type">
 	<option value="">계좌선택</option>
