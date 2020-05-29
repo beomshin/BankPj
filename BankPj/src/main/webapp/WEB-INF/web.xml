@@ -25,6 +25,7 @@
 			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml
 						/WEB-INF/spring/appServlet/aspect-context.xml
 						/WEB-INF/spring/appServlet/websocket-context.xml;
+						/WEB-INF/spring/appServlet/scheduler-context.xml;
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
