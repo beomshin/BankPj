@@ -1,6 +1,7 @@
 package kr.co.bk.model.dao;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -9,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import kr.co.bk.model.vo.Account;
+import kr.co.bk.model.vo.Member;
 
 @Repository
 public class AccountDaoImpl implements AccountDao {
@@ -32,6 +34,17 @@ public class AccountDaoImpl implements AccountDao {
 		map.put("a_type", a_type);
 		
 		return sql.selectOne(namespace + ".accountAsk", map);
+	}
+
+
+	@Override
+	public List<Account> AccountInfo(int m_no) {
+		/*
+		HashMap<String, Object> map = new HashMap<String,Object>();
+		map.put("m_no", m_no);
+		map.put("m_pw", m_pw);
+		*/
+		return sql.selectList(namespace + ".accountInfo", m_no);
 	}
 
 

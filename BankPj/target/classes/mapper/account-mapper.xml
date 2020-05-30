@@ -10,4 +10,8 @@
 	<select id="accountAsk" resultType="String">
 		select a_type from account where m_no = #{m_no} and a_type = #{a_type} 
 	</select>
+	
+	<select id="accountInfo" resultType="kr.co.bk.model.vo.Account" parameterType="int">
+		select a_account, a_money, a_type from account where m_no = #{m_no}
+	</select>
 </mapper>

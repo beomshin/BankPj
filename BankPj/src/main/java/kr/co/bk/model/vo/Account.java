@@ -11,6 +11,6 @@ public class Account {
 
 	private String a_account;
 	private char a_type;
-	private int a_no, a_pw, m_no, a_money;
+	private int a_no, a_pw, m_no, a_money;	
 	
 }

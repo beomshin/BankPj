@@ -19,7 +19,8 @@
 	<h2>그러네?</h2>잘되잖아 시팔련아 ㅡㅡ
 	<a href="member/loginview.do">로그인</a>
 	<a href="task/accountPage.do" >계좌신청</a>
-	<a href="task//myAccount" >내계좌</a>
+	<a href="task/myAccount" >내계좌</a>
+	<a href="task/autoService">자동응답</a>
 	<spring:eval expression="@lang['user.id']"/>
 	<spring:eval expression="@lang['user.pw']"/>
 	<spring:eval expression="@lang['user.test']"/>

@@ -17,11 +17,48 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-비밀번호 인증
-<form id="frm_pw" name="frm_pw">
-<input type="password" id="m_pw" name="m_pw">
+<div>
+<form id="frm_pw" name="frm_pw" >
 <input type="hidden" id="m_no" name="m_no" value="${sessionScope.loginMember.m_no }">
 </form>
-ajax 처리해서 ~~ 비번확인하궁 ~~ 계좌정보 불러올겡~~~
+<button id="account_Btn">계좌정보 보기</button>
+</div>
+<div id="account_list" style="display: none">
+<table class="account_tbl" id="account_tbl">
+<caption>내 계좌정보</caption>
+</table>
+</div>
 </body>
+<script type="text/javascript">
+$("#account_Btn").click(function(){
+	
+	$.ajax({
+		type : 'POST',
+		url : "accountInfo",
+		data : $("#frm_pw").serialize(),
+		success : function(data) {	
+				var data = data;
+				var str = '<TR>';
+				alert("계좌정보를 불러옵니다.");
+				$('#account_Btn').css("display","none");
+				$('#account_list').css("display","block");
+				
+				$.each(data, function(i) {
+					if(data[i].a_type == "N") {
+						data[i].a_type = "입출금";
+					}else {
+						data[i].a_type = "예금";
+					}
+					
+					 str += '<th>계좌번호</th><td>'+data[i].a_account + '<th>잔액</th></td><td>' + data[i].a_money + '원</td><th>통장</th><td>' + data[i].a_type + '</td>';
+					 str += '</TR>';
+				});
+					$("#account_tbl").append(str);
+		},
+		error : function(request, status, error) {
+				alert("비밀번호가 틀립니다.");
+		}
+	});
+});
+</script>
 </html>
