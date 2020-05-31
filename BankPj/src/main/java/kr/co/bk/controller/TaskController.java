@@ -38,6 +38,11 @@ public class TaskController {
 
 		return "task/accountPage";
 	}
+	
+	@RequestMapping("autoService")
+	public void AutoService() throws Exception {
+		
+	}
 
 	@SuppressWarnings("unlikely-arg-type")
 	@RequestMapping(value = "myAccount.do", method = RequestMethod.POST)

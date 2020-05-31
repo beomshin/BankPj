@@ -10,6 +10,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+function showPopup() { window.open("task/autoService", "자동응답", "width=400, height=300, left=100, top=50,resizable=no"); }
+</script>
 </head>
 <body>
 	<h1>오키</h1>
@@ -21,9 +25,8 @@
 	<a href="task/accountPage.do" >계좌신청</a>
 <<<<<<< HEAD
 	<a href="task/myAccount" >내계좌</a>
-	<a href="task/autoService">자동응답</a>
+	<button id="auto_Btn"  onclick="showPopup()">자동응답</button>
 =======
-	<a href="task//myAccount" >내계좌</a>
 	<a href="fund/enrollfund.do">펀드만들기</a>
 	<a href="fund/fundview.do">펀드보러가기</a>
 	<a href="fund/test.do">스케줄러 펀드 변경</a>
