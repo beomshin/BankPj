@@ -23,14 +23,12 @@ function showPopup() { window.open("task/autoService", "자동응답", "width=40
 	<h2>그러네?</h2>잘되잖아 시팔련아 ㅡㅡ
 	<a href="member/loginview.do">로그인</a>
 	<a href="task/accountPage.do" >계좌신청</a>
-<<<<<<< HEAD
 	<a href="task/myAccount" >내계좌</a>
 	<button id="auto_Btn"  onclick="showPopup()">자동응답</button>
-=======
+	<a href="chat/chat.do">익명채팅방</a>
 	<a href="fund/enrollfund.do">펀드만들기</a>
 	<a href="fund/fundview.do">펀드보러가기</a>
 	<a href="fund/test.do">스케줄러 펀드 변경</a>
->>>>>>> branch 'dev' of https://github.com/beomshin/BankPj.git
 	<spring:eval expression="@lang['user.id']"/>
 	<spring:eval expression="@lang['user.pw']"/>
 	<spring:eval expression="@lang['user.test']"/>
