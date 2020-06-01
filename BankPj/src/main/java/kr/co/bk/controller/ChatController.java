@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ChatController {
 
 	@RequestMapping("chat.do")
-		public String Chat() throws Exception{
+	public String Chat() throws Exception {
+
 		return "chat/chat";
 
 	}
