@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.bk.model.vo.Account;
@@ -28,15 +29,29 @@ public class TaskController {
 
 	// 기본이동
 	@RequestMapping(value = "myAccount")
-	public String getMyaccount() throws Exception {
-
-		return "task/myAccount";
+	public ModelAndView getMyaccount(HttpSession session,ModelAndView mv) throws Exception {
+		Member m = (Member) session.getAttribute("loginMember");
+		if(m==null) {
+			mv.addObject("msg","로그인이 필요합니다");
+			mv.addObject("loc","/");
+			mv.setViewName("common/msg");
+			return mv;
+		}
+		mv.setViewName("task/myAccount");
+		return mv;
 	}
 
 	@RequestMapping("accountPage.do")
-	public String getAccountPage() throws Exception {
-
-		return "task/accountPage";
+	public ModelAndView getAccountPage(ModelAndView mv,HttpSession session) throws Exception {
+		Member m = (Member) session.getAttribute("loginMember");
+		if(m==null) {
+			mv.addObject("msg","로그인이 필요합니다");
+			mv.addObject("loc","/");
+			mv.setViewName("common/msg");
+			return mv;
+		}
+		mv.setViewName("task/accountPage");
+		return mv;
 	}
 	
 	@RequestMapping("autoService")

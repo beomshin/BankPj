@@ -14,4 +14,5 @@ public class Fund {
 	private int f_fee;
 	private double f_money;
 	private char f_status;
+	private int iv;
 }

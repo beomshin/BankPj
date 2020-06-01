@@ -29,8 +29,12 @@
 		<div class="container">	
 			<!-- Codrops top bar -->
 			<div class="codrops-top clearfix">
-				<a href="member/loginview.do"><span>로그인</span></a>
-				<span class="right"><a href="fund/test.do"><span>스케줄러 펀드 변경</span></a></span>
+				<c:if test="${empty loginMember }">
+				<a href="member/loginview.do"><span style="font-size: 20px;">로그인</span></a>
+				</c:if>
+				<c:if test="${not empty loginMember }">
+				<a href="member/loginview.do"><span style="font-size: 20px;">${loginMember.m_name }안녕하세요</span></a>
+				</c:if>
 			</div>
 			<header>
 				<h1>미니은행 <span>경제잡담, 입출금, 예금, 펀드를 누려보세요.</span></h1>	
@@ -59,7 +63,7 @@
 								<span class="icon">
 									<i aria-hidden="true" class="icon-portfolio"></i>
 								</span>
-								<span>펀드 신청</span>
+								<span>내 펀드</span>
 							</a>
 						</li>
 						<li>

@@ -11,5 +11,25 @@
 		update fund set f_per=#{f_per},f_money=(${f_money}+(${f_money}*(${f_per}*0.01)))
 		where f_no=#{f_no}
 	</update>
+	
+	<select id="getfund" resultType="fund">
+		select * from fund
+	</select>
+	
+	<select id="getfundAll" resultType="_int">
+		select count(*) from fund
+	</select>
+	
+	<insert id="fundapply" parameterType="map">
+		insert into myfund values(#{fno},#{mno},#{price})
+	</insert>
+	
+	<select id="getmyfund" resultType="fund">
+		select * from myfund join fund using(f_no) where m_no=#{no}
+	</select>
+	
+	<delete id="deletefund">
+		delete from myfund where f_no=#{fno} and m_no=#{mno}
+	</delete>
 
 </mapper>

@@ -23,7 +23,26 @@
 <title>${param.title }</title>
 
 </head>
-<body>
+<style>
 	
+	.top-login{
+		width: 100%;
+		height : 30px;
+		background-color: lightgray;
+	}
+	
+</style>
+<body>
+
+		<div class="top-login">
+				<c:if test="${empty loginMember }">
+				<a href="${path }/member/loginview.do"><span style="font-size: 20px;color: black">로그인</span></a>
+				<a href="${path }"><span style="font-size: 20px;color: black;margin-left: 5px">메인으로</span></a>
+				</c:if>
+				<c:if test="${not empty loginMember }">
+				<a href="${path }/member/loginview.do"><span style="font-size: 20px;color: black">${loginMember.m_name }안녕하세요</span></a>
+				<a href="${path }"><span style="font-size: 20px;color: black;margin-right: 5px;">메인으로</span></a>
+				</c:if>
+			</div>
 	
 	

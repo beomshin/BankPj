@@ -1,9 +1,11 @@
 package kr.co.bk.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -40,6 +42,37 @@ public class FundDaoImpl implements FundDao {
 		}
 		
 		return result;
+	}
+
+	@Override
+	public List<Fund> getfund(int cPage,int numperPage) {
+		// TODO Auto-generated method stub
+		RowBounds row =new  RowBounds((cPage-1)*numperPage, numperPage);
+		return session.selectList(namespace+".getfund","",row);
+	}
+
+	@Override
+	public int getfundAll() {
+		// TODO Auto-generated method stub
+		return session.selectOne(namespace+".getfundAll");
+	}
+
+	@Override
+	public int fundapply(Map<String, Integer> map) {
+		// TODO Auto-generated method stub
+		return session.insert(namespace+".fundapply",map);
+	}
+
+	@Override
+	public List<Fund> getmyfund(int no) {
+		// TODO Auto-generated method stub
+		return session.selectList(namespace+".getmyfund",no);
+	}
+
+	@Override
+	public int deletefund(Map<String, Integer> map) {
+		// TODO Auto-generated method stub
+		return session.delete(namespace+".deletefund",map);
 	}
 	
 	
